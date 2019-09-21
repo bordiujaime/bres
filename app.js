@@ -65,6 +65,24 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 //Routes
-const router = require('./routes/auth');
-app.use('/', router);
+
+//Routes.................................
+
+// Login - Sign Up
+const index = require('./routes/index');
+app.use('/', index);
+
+
+// Home
+const home = require('./routes/home');
+app.use('/home', home);
+const service = require('./routes/service');
+app.use('/home/service', service);
+const favorite = require('./routes/favorite');
+app.use('/home/favorite', favorite);
+const error = require('./routes/error');
+app.use('/home/error', error);
+
+
+
 module.exports = app;

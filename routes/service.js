@@ -1,9 +1,10 @@
 const express = require('express');
-const router = express.Router();
+const router  = express.Router();
 
-// GET login page
+// GET service page
+
 router.get('/', (req, res, next) => {
-  res.render('layout');
+  res.render('service');
 });
 
 module.exports = router;
