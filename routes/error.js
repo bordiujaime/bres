@@ -1,9 +1,10 @@
 const express = require('express');
 const router  = express.Router();
 
-// GET login page
+// GET error page
+
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('error');
 });
 
 module.exports = router;
