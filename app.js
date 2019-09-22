@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
@@ -61,11 +62,11 @@ app.use('/', index);
 const home = require('./routes/home');
 app.use('/home', home);
 const service = require('./routes/service');
-app.use('/home/service', service);
+app.use('/service', service);
 const favorite = require('./routes/favorite');
-app.use('/home/favorite', favorite);
+app.use('/favorite', favorite);
 const error = require('./routes/error');
-app.use('/home/error', error);
+app.use('/error', error);
 
 
 
