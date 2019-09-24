@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const favicon = require('serve-favicon');
 const hbs = require('hbs');
+const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
@@ -13,6 +14,9 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const MongoStore = require("connect-mongo")(session);
+const ensureLogin = require('connect-ensure-login');
+
+require("./config/passport")
 
 
 mongoose
@@ -37,12 +41,15 @@ app.use(session({
   })
 }));
 
-
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Express View engine setup
 
@@ -64,25 +71,31 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-//Routes
-
 //Routes.................................
 
 // Login - Sign Up
 const index = require('./routes/index');
 app.use('/', index);
 
+const indexRouter = require('./routes/index')
+const usersRouter = require('./routes/users')
+const authRouter = require('./routes/auth')
+const noteRouter = require('./routes/home')
 
-// Home
-const home = require('./routes/home');
-app.use('/home', home);
-const service = require('./routes/service');
-app.use('/home/service', service);
-const favorite = require('./routes/favorite');
-app.use('/home/favorite', favorite);
-const error = require('./routes/error');
-app.use('/home/error', error);
+app.use('/', indexRouter)
+app.use('/', authRouter)
+app.use('/users', usersRouter)
+app.use('/home', ensureLogin.ensureLoggedIn(), noteRouter)
 
 
+// // Home
+// const home = require('./routes/home');
+// app.use('/home', home);
+// const service = require('./routes/service');
+// app.use('/home/service', service);
+// const favorite = require('./routes/favorite');
+// app.use('/home/favorite', favorite);
+// const error = require('./routes/error');
+// app.use('/home/error', error);
 
 module.exports = app;
