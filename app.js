@@ -88,14 +88,4 @@ app.use('/users', usersRouter)
 app.use('/home', ensureLogin.ensureLoggedIn(), noteRouter)
 
 
-// // Home
-// const home = require('./routes/home');
-// app.use('/home', home);
-// const service = require('./routes/service');
-// app.use('/home/service', service);
-// const favorite = require('./routes/favorite');
-// app.use('/home/favorite', favorite);
-// const error = require('./routes/error');
-// app.use('/home/error', error);
-
 module.exports = app;
