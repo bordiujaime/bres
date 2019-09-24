@@ -16,14 +16,11 @@ router.get('/', (req, res, next) => {
   const client = yelp.client(apiKey);
   client.search(searchRequest).then(response => {
     const firstResult = response.jsonBody.businesses;
-    console.log(firstResult);
   }).catch(e => {
     console.log(e);
   });
 
-
 });
-
 
 
 module.exports = router;
