@@ -1,4 +1,12 @@
+// const express = require('express');
+// const router = express.Router();
 
+// // GET login page
+// router.get('/', (req, res, next) => {
+//   res.render('index');
+// });
+
+// module.exports = router;
 
 const express = require('express');
 const router = express.Router();
@@ -16,6 +24,7 @@ router.get('/', (req, res, next) => {
  };
  const client = yelp.client(apiKey);
  client.search(searchRequest).then(response => {
+   console.log(response)
    const firstResult = response.jsonBody.businesses;
  }).catch(e => {
    console.log(e);

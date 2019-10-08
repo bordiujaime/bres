@@ -1,5 +1,5 @@
 body {
-  display: flex;
+  
   margin: 0px;
   padding: 0px;
   background-color: rgb(255, 255, 255);
@@ -107,6 +107,8 @@ input::placeholder {
 
 }
 
+
+
  .login{
     width: auto;
     padding: 10px;
@@ -170,7 +172,7 @@ button{
 
     .menu3 ul{
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       padding: auto;
       margin-left: 0px;
       
@@ -178,20 +180,33 @@ button{
 
     .flex-container {
      display: flex;
+     margin-top: 5%;
      flex-direction: row;
+     justify-content: space-evenly;
      
-      
     }
 
     .item {
-      margin: 10px;
       display: inherit;
-      padding: 10px;
-      width: 100px;
-      height: 100px;
+      width: 200px;
+      height: 200px;
       align-items: center;
-      background-color:#ffd000;
+      background-color:white;
+      border-style: solid;
+      border: none;
+      border-bottom: 2px solid #2c2c2c;
+      outline: none;
+      border-radius: 10px;
       
     }
 
+    .img{
+      width: 100px;
+      height: 100px
+    }
     
+    .text{
+margin-top: 60px;
+margin-left: 25%;
+margin-right: 25%;
+    }

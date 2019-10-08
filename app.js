@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
@@ -13,59 +14,101 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const MongoStore = require("connect-mongo")(session);
-
 const ensureLogin = require('connect-ensure-login');
-require("./config/passport")
-mongoose
- .connect('mongodb://localhost/bres', { useNewUrlParser: true })
- .then(x => {
-   console.log('Connected to Mongo! Database name: "${x.connections[0].name}"')
- })
- .catch(err => {
-   console.error('Error connecting to mongo', err)
- });
 
+
+
+require("./config/passport")
+
+
+mongoose
+  .connect('mongodb://localhost/bres', { useNewUrlParser: true })
+  .then(x => {
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  })
+  .catch(err => {
+    console.error('Error connecting to mongo', err)
+  });
 
 const app_name = require('./package.json').name;
-const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}"`);
+const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
+
 const app = express();
+
 app.use(session({
- secret: "abc",
- store: new MongoStore({
-   mongooseConnection: mongoose.connection,
-   ttl: 24 * 60 * 60 // 1 day
- })
+  secret: "abc",
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
 }));
+
+// // Place holder for Yelp Fusion's API Key. Grab them
+// const yelp = require('yelp-fusion');
+// const apiKey = '7kmCw3URdwJ-Mik8CpM4c6fKfaeeGhosvx3tMdqo4fBsCM6f6VBdMBAjZHxjpaaEGVOQC48SdgOHlxeuEcrSzRYBzh901KyU_N2x0uVjk0lVWCVIZ75NZqk6QsODXXYx';
+// const client = yelp.client(apiKey);
+
+// const term = document.getElementsById('serachBarId').value;
+// const searchRequest = {
+//   term: term,
+//   location:location,
+// };
+
+// client.search(searchRequest).then(response => {
+//   const firstResult = response.jsonBody.businesses;
+
+// }).catch(e => {
+//   console.log(e);
+// });
+
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
+
 // Express View engine setup
+
 app.use(require('node-sass-middleware')({
- src: path.join(__dirname, 'public'),
- dest: path.join(__dirname, 'public'),
- sourceMap: true
+  src: path.join(__dirname, 'public'),
+  dest: path.join(__dirname, 'public'),
+  sourceMap: true
 }));
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+
+
+
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
+
+
 //Routes.................................
+
 // Login - Sign Up
 const index = require('./routes/index');
 app.use('/', index);
+
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
 const noteRouter = require('./routes/home')
+const serviceRouter = require('./routes/services')
+
 app.use('/', indexRouter)
 app.use('/', authRouter)
+app.use('/', serviceRouter)
 app.use('/users', usersRouter)
 app.use('/home', ensureLogin.ensureLoggedIn(), noteRouter)
+
+
 module.exports = app;

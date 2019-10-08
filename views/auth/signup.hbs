@@ -1,17 +1,20 @@
 <form id="form" action="/signup" method="POST">
- <label for="username">Username</label><br>
- <input type="text" name="username" placeholder="Your username">
- <br>
- <label for="email">Email</label><br>
- <input type="text" name="email" placeholder="Your Email">
- <br>
- <label for="password">Password</label><br>
- <input type="password" name="password" placeholder="********">
- <button type="submit">Create account</button>
+  <label for="username">Username</label><br>
+  <input type="text" name="username" placeholder="Your username">
+  <br>
+  <label for="email">Email</label><br>
+  <input type="text" name="email" placeholder="Your Email">
+  <br>
+  <label for="password">Password</label><br>
+  <input type="password" name="password" placeholder="********">
+
+  <button type="submit">Create account</button>
 </form>
+
 Already have an account?
 <br>
 <a href="/login">Login</a>
+
 {{#if errorMessage}}
 <div class="error-message">{{ errorMessage }}</div>
 {{/if}}

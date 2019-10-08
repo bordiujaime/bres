@@ -3,8 +3,8 @@ const router  = express.Router();
 
 // GET service page
 
-router.get('/', (req, res, next) => {
-  res.render('service');
+router.get('/services', (req, res, next) => {
+  res.render('services');
 });
 
 module.exports = router;
