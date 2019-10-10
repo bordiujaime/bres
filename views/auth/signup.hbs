@@ -1,0 +1,42 @@
+<div class="loginMain">
+
+<div class="loginLeft">
+
+
+</div>
+
+
+<div class="loginRight">
+
+  <div class="login">
+
+
+
+<h2>Already have an account?</h2>
+
+<form action="/signup" method="post">
+  <input class="signUpPage" type="text" name="name" placeholder="name">
+  <br>
+  <input class="signUpPage" type="text" name="email" placeholder="email">
+  
+<br>
+  <input class="signUpPage" type="password" name="password" placeholder="password">
+  <br>
+  <br>
+  <div><button type="submit">Sign up</button></div>
+</form>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+Already have an account?
+<br>
+<a href="/login">Login</a>
+{{#if errorMessage}}
+<div class="error-message">{{ errorMessage }}</div>
+{{/if}}

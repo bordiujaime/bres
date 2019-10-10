@@ -1,0 +1,9 @@
+<div id="service">
+  <h1>welcome to service</h1>
+
+  {{#each firstResults}}
+  <li><a href={{this.url}}>{{this.name}}</a></li>
+  <li><img class="resultImage" src={{this.image_url}} alt={{this.name}}></li>
+  {{/each}}
+  
+</div>
