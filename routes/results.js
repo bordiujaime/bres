@@ -5,9 +5,8 @@ const router = express.Router();
 
 router.get('/results', (req, res, next) => {
 
-
-
-  let category = req.query.category
+  let category = req.query.categories
+  console.log(category)
   let city = req.query.location
 
   const yelp = require('yelp-fusion');
@@ -26,10 +25,11 @@ router.get('/results', (req, res, next) => {
 
     res.render('results', { firstResults });
     console.log(firstResult)
+    console.log(searchRequest)
+
   }).catch(error => {
     console.log(error);
   });
-
 
 });
 

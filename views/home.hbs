@@ -4,12 +4,25 @@
   </div>
   <form action="/results" method="GET">
 
+    {{!-- <div class="search">
+      <input class="searchBar" name="categories" type="text" autocomplete="on" placeholder="Search...">
+    </div> --}}
+
     <div class="search">
-      <input class="searchBar" name="category" type="text" autocomplete="on" placeholder="Search...">
+
+      <select name="categories">
+        <option value="painters">Painters</option>
+        <option value="electricians">Electricians</option>
+        <option value="plumbing">plumbing</option>
+        <option value="laundryservices">Laundry Services</option>
+
+      </select>
+
     </div>
 
+
     <div class="location">
-      <input name="location" class="locationBar" type="text" autocomplete="on" placeholder="Where?">
+      <input class="locationBar" name="location" type="text" autocomplete="on" placeholder="Where?">
       <button class="goButton" type="submit">Go!</button>
     </div>
   </form>
@@ -24,7 +37,9 @@
   </div>
 
   <div class="item" data-color="2a80b9">
+
     <p>1</p>
+
   </div>
 
   <div class="item" data-color="2a80b9">
