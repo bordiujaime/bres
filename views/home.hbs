@@ -1,8 +1,37 @@
+<div class="container">
+    <div class="menu1">
+
+    <ul class="navigation">
+       
+      <li><a href="home">Home</a></li>
+      
+      
+    </ul>
+    </div>
+    
+    <div class="menu2">
+
+    <ul class="navigation">
+       <li><a href="favorite">Favorite</a></li>
+       <li><a href="logout">Log Out</a></li>
+  
+    </ul>
+    </div>
+    </div>
+
+{{!-- /////////////////////////////// --}}
+
 <div class="main">
   <div class="banner">
     <img src="images/banner1.jpg">
   </div>
+
+</div>
+
+
+  <div class="bars">
   <form action="/results" method="GET">
+
 
     <div class="search">
       <input class="searchBar" name="category" type="text" autocomplete="on" placeholder="Search...">
@@ -16,26 +45,97 @@
 
 </div>
 
+{{!-- /////////////////////////////// --}}
 
 
-<div class="flex-container" id="justify">
-  <div class="item" data-color="2a80b9">
-    <p>1</p>
+<div class="textUp">
+<h1>Categories</h1>
+</div>
+
+{{!-- /////////////////////////////// --}}
+
+
+<div class="flex-container">
+
+  <script>
+    window.onload = () => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        [..document.getElementsByClassName("item")].forEach((div) => {
+          // div.onlick 
+        })
+      })
+    }    
+  </script>
+
+  <div class="item" id="handyman">
+    <img src="images/1.jpg" class="imgCard">
+    
   </div>
-
-  <div class="item" data-color="2a80b9">
-    <p>1</p>
+  <div class="item" id="electrician">
+    <img src="images/2.jpg" class="imgCard">
+    
   </div>
-
-  <div class="item" data-color="2a80b9">
-    <p>1</p>
+  <div class="item">
+    <img src="images/3.jpg" class="imgCard">
+    
   </div>
-
-  <div class="item" data-color="2a80b9">
-    <p>1</p>
+  <div class="item">
+    <img src="images/4.jpg" class="imgCard">
+    
   </div>
+</div>
 
-  <div class="item" data-color="2a80b9">
-    <p>1</p>
+<div class="flex-container">
+
+  <div class="item">
+    <img src="images/5.jpg" class="imgCard">
+    
   </div>
+  <div class="item">
+    <img src="images/6.jpg" class="imgCard">
+    
+  </div>
+  <div class="item">
+    <img src="images/7.jpg" class="imgCard">
+    
+  </div>
+  <div class="item">
+    <img src="images/8.jpg" class="imgCard">
+    
+  </div>
+</div>
+
+<div class="textBody">
+  <p>blablablablablablablablablablablablablablablablablablablabla
+  blablablablablablablablablablablablablablablablablablablablablablablabla
+  blablablablablablablablablablablablablablablablablablablablablablablablablabla
+  blablablablablablablablablablablablablablablablablablablablablablablablablabla
+  blablablablablablablablablablablablablablablablablabla
+ </p>
+
+<br>
+
+  <p>blablablablablablablablablablablablablablablablablablablabla
+  blablablablablablablablablablablablablablablablablablablablablablablabla
+  blablablablablablablablablablablablablablablablablablablablablablablablablabla
+  blablablablablablablablablablablablablablablablablablablablablablablablablabla
+  blablablablablablablablablablablablablablablablablabla
+ </p>
+  
+</div>
+
+{{!-- /////////////////////////////// --}}
+
+   <div class="footer">
+     <div class="menu3">
+
+    <ul class="navigation">
+       
+      <li><a href="about">About</a></li>
+      <li><a href="contact">Contact</a></li>
+      
+      
+      
+    </ul>
+    </div>
 </div>

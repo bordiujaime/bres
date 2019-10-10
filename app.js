@@ -16,10 +16,12 @@ const MongoStore = require("connect-mongo")(session);
 
 const ensureLogin = require('connect-ensure-login');
 require("./config/passport")
+
+
 mongoose
   .connect('mongodb://localhost/bres', { useNewUrlParser: true })
   .then(x => {
-    console.log('Connected to Mongo! Database name: "${x.connections[0].name}"')
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -36,6 +38,8 @@ app.use(session({
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
+
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -56,20 +60,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
+
+
+
 //Routes.................................
 // Login - Sign Up
 const index = require('./routes/index');
 app.use('/', index);
-const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
 const homeRouter = require('./routes/home')
 const resultsRouter = require('./routes/results')
+const favoriteRouter = require('./routes/favorite')
 
-app.use('/', indexRouter)
+
 app.use('/', authRouter)
 app.use('/users', usersRouter)
 app.use('/home', ensureLogin.ensureLoggedIn(), homeRouter)
-app.use('/', ensureLogin.ensureLoggedIn(), resultsRouter)
+app.use('/results', ensureLogin.ensureLoggedIn(), resultsRouter)
+app.use('/favorite', ensureLogin.ensureLoggedIn(), favoriteRouter)
 
 module.exports = app;

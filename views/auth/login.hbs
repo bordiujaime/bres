@@ -1,41 +1,49 @@
-{{!-- <form id="form" action="/login" method="POST">
- <label for="email">Email</label><br>
- <input type="text" name="email" placeholder="email">
- <label for="password">Password</label><br>
- <input type="password" name="password" placeholder="********">
- <button type="submit">Log In></button>
-</form>
-Don't have an account?
-<a href="/signup">Sign up</a>
-<p><a href='/'>Back home</a></p>
-{{#if errorMessage}}
-<div class="error-message">{{ errorMessage }}</div>
-{{/if}}
-{{#if message}}
-<div class="error-message">{{ message }}</div>
-{{/if}} --}}
+<div class="loginMain">
 
-<div class="login">
+<div class="loginLeft">
+
+
+</div>
+
+
+<div class="loginRight">
+
+  <div class="login">
+
 
   <h1>Login</h1>
 
+
 <form action="/login" method="post">
-  <input type="text" name="email" placeholder="email">
+  <input class="inpLogIn" type="text" name="email" placeholder="email">
   <br>
   <br>
-  <input type="password" name="password" placeholder="password">
-  <button type="submit">Log in</button>
+  <input class="inpLogIn" type="password" name="password" placeholder="password">
+  <br>
+  <br>
+  <div><button type="submit">Log in</button></div>
 </form>
 
-<h1>Already have an account?</h1>
+
+
+<h5>Already have an account?</h5>
 
 <form action="/signup" method="post">
-  <input type="text" name="name" placeholder="name">
+  <input class="inpSignUp" type="text" name="name" placeholder="name">
+  <br>
+  <input class="inpSignUp" type="text" name="email" placeholder="email">
+  
+<br>
+  <input class="inpSignUp" type="password" name="password" placeholder="password">
   <br>
   <br>
-  <input type="text" name="email" placeholder="email">
-  <br>
-  <br>
-  <input type="password" name="password" placeholder="password">
-  <button type="submit">Sign up</button>
+  <div><button type="submit">Sign up</button></div>
 </form>
+
+
+
+</div>
+
+</div>
+
+</div>
