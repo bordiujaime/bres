@@ -1,4 +1,4 @@
-<div class="container">
+<div class="containerHome">
   <div class="menu1">
 
     <ul class="navigation">
@@ -8,11 +8,11 @@
 
     </ul>
   </div>
+  
 
   <div class="menu2">
 
     <ul class="navigation">
-      <li><a href="favorite">Favorite</a></li>
       <li><a href="logout">Log Out</a></li>
 
     </ul>
@@ -39,9 +39,10 @@
     <div class="search">
 
       <select name="categories">
+        <option value="">Categories</option>
         <option value="painters">Painters</option>
         <option value="electricians">Electricians</option>
-        <option value="plumbing">plumbing</option>
+        <option value="plumbing">Plumbers</option>
         <option value="laundryservices">Laundry Services</option>
 
       </select>
@@ -51,11 +52,12 @@
 
     <div class="location">
       <input class="locationBar" name="location" type="text" autocomplete="on" placeholder="Where?">
-      <button class="goButton" type="submit">Go!</button>
+      <button class="goButton" type="submit" onclick="getInputValue();">Go!</button>
     </div>
+    
   </form>
-
 </div>
+
 
 {{!-- /////////////////////////////// --}}
 
@@ -67,22 +69,26 @@
 {{!-- /////////////////////////////// --}}
 
 
-<div class="flex-container">
+
 
   <script>
     window.onload = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         [..document.getElementsByClassName("item")].forEach((div) => {
           // div.onlick 
-        })
-      })
-    }    
+        });
+      });
+    };
+        
   </script>
+  
+
+<div class="flex-container">
 
   <div class="item" id="handyman">
     <img src="images/1.jpg" class="imgCard">
-
   </div>
+
   <div class="item" id="electrician">
     <img src="images/2.jpg" class="imgCard">
 
@@ -117,6 +123,7 @@
   </div>
 </div>
 
+
 <div class="textBody">
   <p>blablablablablablablablablablablablablablablablablablablabla
     blablablablablablablablablablablablablablablablablablablablablablablabla
@@ -125,16 +132,9 @@
     blablablablablablablablablablablablablablablablablabla
   </p>
 
-  <br>
-
-  <p>blablablablablablablablablablablablablablablablablablablabla
-    blablablablablablablablablablablablablablablablablablablablablablablabla
-    blablablablablablablablablablablablablablablablablablablablablablablablablabla
-    blablablablablablablablablablablablablablablablablablablablablablablablablabla
-    blablablablablablablablablablablablablablablablablabla
-  </p>
 
 </div>
+
 
 {{!-- /////////////////////////////// --}}
 
@@ -143,8 +143,8 @@
 
     <ul class="navigation">
 
-      <li><a href="about">About</a></li>
-      <li><a href="contact">Contact</a></li>
+      <li><a href="about"></a></li>
+      <li><a href="contact"></a></li>
 
 
 

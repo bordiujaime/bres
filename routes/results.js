@@ -17,6 +17,8 @@ router.get('/', (req, res, next) => {
     location: city,
     categories: category,
     sort_by: "rating",
+    limit: 20,
+    offset: 21,
 
   };
 
@@ -31,6 +33,7 @@ router.get('/', (req, res, next) => {
   });
 
 });
+
 
 
 

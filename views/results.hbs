@@ -1,60 +1,86 @@
-<!doctype html>
-<html lang="en">
+<div class="containerResults">
+  <div class="menu1">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <ul class="navigation">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <li><a href="home">Home</a></li>
 
 
-</head>
-
-<body>
-
-  <div class="container2">
-    <img src="images/banner1.jpg" alt="header" style="width:100%;">
-    <div class="centered">RESULTS</div>
-
+    </ul>
   </div>
+  
+
+  <div class="menu2">
+
+    <ul class="navigation">
+      <li><a href="logout">Log Out</a></li>
+
+    </ul>
+  </div>
+</div>
+
+{{!-- /////////////////////////////// --}}
+
+<div class="main">
+  <div class="banner">
+    <img src="images/banner1.jpg">
+  </div>
+
+</div>
+
+
+<div class="bars">
+  <form action="/results" method="GET">
+
+    <div class="search">
+
+      <select name="categories">
+        <option value="">Categories</option>
+        <option value="painters">Painters</option>
+        <option value="electricians">Electricians</option>
+        <option value="plumbing">Plumbers</option>
+        <option value="laundryservices">Laundry Services</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="location">
+      <input class="locationBar" name="location" type="text" autocomplete="on" placeholder="Where?">
+      <button class="goButton" type="submit">Go!</button>
+    </div>
+  </form>
+
+</div>
+
+  <div class="textUp">
+  <h1>Results</h1>
+</div>
+
+
+
+<div class="bodyResults">
+
   {{#each firstResults}}
 
-  <div class="card">
+
+  <div class="cardResults">
     <div class="card-body">
-      <img class="resultImage" src={{this.image_url}} alt=<h5 class="card-title">
-      </h5>
+      <a href={{this.url}}>
+      <img class="resultImage" src={{this.image_url}} alt= class="card-title">
+      </a>
       <p class="card-text">{{this.name}}</p>
-      <a href={{this.url}} class="btn btn-primary">Go to business</a>
+      <p class="card-text">Rating: {{this.rating}}</p>
+      <p class="card-text">Based on {{this.review_count}} Reviewer(s)</p>
+      <p class="card-text">Phone: {{this.phone}}</p>
+      
+      
     </div>
   </div>
+  
+
   {{/each}}
 
-  {{!-- 
-  <div id="service">
-    <h1>welcome to service</h1>
+</div>
 
-
-    <li><a href={{this.url}}>{{this.name}}</a></li>
-    <li><img class="resultImage" src={{this.image_url}} alt={{this.name}}></li>
-
-  </div> --}}
-
-
-  <!-- Optional JavaScript -->
-
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-</body>
-
-</html>
