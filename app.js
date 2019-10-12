@@ -65,6 +65,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 //Routes.................................
 // Login - Sign Up
+const index = require('./routes/index')
+app.use('/',index)
 const usersRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
 const homeRouter = require('./routes/home')
