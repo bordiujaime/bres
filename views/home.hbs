@@ -8,7 +8,7 @@
 
     </ul>
   </div>
-  
+
 
   <div class="menu2">
 
@@ -23,40 +23,43 @@
 
 <div class="main">
   <div class="banner">
-    <img src="images/banner1.jpg">
+    {{!-- <div class="bars"> --}}
+    <form action="/results" method="GET">
+
+      {{!-- <div class="search">
+      <input class="searchBar" name="categories" type="text" autocomplete="on" placeholder="Search...">
+    </div> --}}
+      <div id="search-bars">
+        <div class="search">
+
+          <select name="categories">
+            <option value="painters">Painters</option>
+        <option value="electricians">Electricians</option>
+        <option value="plumbing">plumbing</option>
+        <option value="laundryservices">Laundry Services</option>
+        <option value="locksmiths">Keys and Locksmiths</option>
+        <option value="landscaping">Lawn Services</option>
+        <option value="movers">Movers</option>
+        <option value="hvac">Heating and Air Conditioning</option>
+          </select>
+
+        </div>
+
+
+        <div class="location">
+          <input class="locationBar" name="location" type="text" autocomplete="on" placeholder="Where?">
+          <button class="goButton" type="submit" onclick="getInputValue();">Go!</button>
+        </div>
+      </div>
+
+    </form>
+    {{!-- </div> --}}
   </div>
 
 </div>
 
 
-<div class="bars">
-  <form action="/results" method="GET">
 
-    {{!-- <div class="search">
-      <input class="searchBar" name="categories" type="text" autocomplete="on" placeholder="Search...">
-    </div> --}}
-
-    <div class="search">
-
-      <select name="categories">
-        <option value="">Categories</option>
-        <option value="painters">Painters</option>
-        <option value="electricians">Electricians</option>
-        <option value="plumbing">Plumbers</option>
-        <option value="laundryservices">Laundry Services</option>
-
-      </select>
-
-    </div>
-
-
-    <div class="location">
-      <input class="locationBar" name="location" type="text" autocomplete="on" placeholder="Where?">
-      <button class="goButton" type="submit" onclick="getInputValue();">Go!</button>
-    </div>
-    
-  </form>
-</div>
 
 
 {{!-- /////////////////////////////// --}}
@@ -71,75 +74,60 @@
 
 
 
-   <script>
-    window.onload = () => {
-      navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position)
-        let divs = document.getElementsByClassName("item")
-        for (let i = 0; i < divs.length; i++) {
-          let div = divs[i]
-          div.onclick = () => {
-            window.location = `/results_ltln?categories=${div.id}&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`
-          }
+<script>
+  window.onload = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position)
+      let divs = document.getElementsByClassName("item")
+      for (let i = 0; i < divs.length; i++) {
+        let div = divs[i]
+        div.onclick = () => {
+          window.location = `/results_ltln?categories=${div.id}&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`
         }
-      })
-    }
-  </script>
+      }
+    })
+  }
+</script>
 
 
 
 
 
 
-  
 
 <div class="flex-container">
-
-  <div class="item" id="handyman">
+  <div class="item" id="painters">
     <img src="images/1.jpg" class="imgCard">
   </div>
-
-  <div class="item" id="electrician">
+  <div class="item" id="electricians">
     <img src="images/2.jpg" class="imgCard">
-
   </div>
-  <div class="item">
+  <div class="item" id="homecleaning">
     <img src="images/3.jpg" class="imgCard">
-
   </div>
-  <div class="item">
+  <div class="item" id="locksmiths">
     <img src="images/4.jpg" class="imgCard">
-
   </div>
 </div>
-
 <div class="flex-container">
-
-  <div class="item">
+  <div class="item" id="landscaping">
     <img src="images/5.jpg" class="imgCard">
-
   </div>
-  <div class="item">
+  <div class="item" id="movers">
     <img src="images/6.jpg" class="imgCard">
-
   </div>
-  <div class="item">
+  <div class="item" id="plumbing">
     <img src="images/7.jpg" class="imgCard">
-
   </div>
-  <div class="item">
+  <div class="item" id="hvac">
     <img src="images/8.jpg" class="imgCard">
-
   </div>
 </div>
 
 
 <div class="textBody">
-  <p>blablablablablablablablablablablablablablablablablablablabla
-    blablablablablablablablablablablablablablablablablablablablablablablabla
-    blablablablablablablablablablablablablablablablablablablablablablablablablabla
-    blablablablablablablablablablablablablablablablablablablablablablablablablabla
-    blablablablablablablablablablablablablablablablablabla
+  <p>We hope you enjoy our website as much as we do.
+    Feel free to make a donation into our Paypal account.
   </p>
 
 

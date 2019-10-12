@@ -23,34 +23,39 @@
 
 <div class="main">
   <div class="banner">
-    <img src="images/banner1.jpg">
-  </div>
+    {{!-- <div class="bars"> --}}
+    <form action="/results" method="GET">
 
-</div>
+      {{!-- <div class="search">
+      <input class="searchBar" name="categories" type="text" autocomplete="on" placeholder="Search...">
+    </div> --}}
+      <div id="search-bars">
+        <div class="search">
 
-
-<div class="bars">
-  <form action="/results" method="GET">
-
-    <div class="search">
-
-      <select name="categories">
-        <option value="">Categories</option>
-        <option value="painters">Painters</option>
+          <select name="categories">
+ <option value="painters">Painters</option>
         <option value="electricians">Electricians</option>
-        <option value="plumbing">Plumbers</option>
+        <option value="plumbing">plumbing</option>
         <option value="laundryservices">Laundry Services</option>
+        <option value="locksmiths">Keys and Locksmiths</option>
+        <option value="landscaping">Lawn Services</option>
+        <option value="movers">Movers</option>
+        <option value="hvac">Heating and Air Conditioning</option>
 
-      </select>
+          </select>
 
-    </div>
+        </div>
 
 
-    <div class="location">
-      <input class="locationBar" name="location" type="text" autocomplete="on" placeholder="Where?">
-      <button class="goButton" type="submit">Go!</button>
-    </div>
-  </form>
+        <div class="location">
+          <input class="locationBar" name="location" type="text" autocomplete="on" placeholder="Where?">
+          <button class="goButton" type="submit" onclick="getInputValue();">Go!</button>
+        </div>
+      </div>
+
+    </form>
+    {{!-- </div> --}}
+  </div>
 
 </div>
 
