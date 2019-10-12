@@ -1,0 +1,86 @@
+<div class="containerResults">
+  <div class="menu1">
+
+    <ul class="navigation">
+
+      <li><a href="home">Home</a></li>
+
+
+    </ul>
+  </div>
+  
+
+  <div class="menu2">
+
+    <ul class="navigation">
+      <li><a href="logout">Log Out</a></li>
+
+    </ul>
+  </div>
+</div>
+
+{{!-- /////////////////////////////// --}}
+
+<div class="main">
+  <div class="banner">
+    <img src="images/banner1.jpg">
+  </div>
+
+</div>
+
+
+<div class="bars">
+  <form action="/results" method="GET">
+
+    <div class="search">
+
+      <select name="categories">
+        <option value="">Categories</option>
+        <option value="painters">Painters</option>
+        <option value="electricians">Electricians</option>
+        <option value="plumbing">Plumbers</option>
+        <option value="laundryservices">Laundry Services</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="location">
+      <input class="locationBar" name="location" type="text" autocomplete="on" placeholder="Where?">
+      <button class="goButton" type="submit">Go!</button>
+    </div>
+  </form>
+
+</div>
+
+  <div class="textUp">
+  <h1>Results</h1>
+</div>
+
+
+
+<div class="bodyResults">
+
+  {{#each firstResults}}
+
+
+  <div class="cardResults">
+    <div class="card-body">
+      <a href={{this.url}}>
+      <img class="resultImage" src={{this.image_url}} alt= class="card-title">
+      </a>
+      <p class="card-text">{{this.name}}</p>
+      <p class="card-text">Rating: {{this.rating}}</p>
+      <p class="card-text">Based on {{this.review_count}} Reviewer(s)</p>
+      <p class="card-text">Phone: {{this.phone}}</p>
+      
+      
+    </div>
+  </div>
+  
+
+  {{/each}}
+
+</div>
+

@@ -71,16 +71,26 @@
 
 
 
-  <script>
+   <script>
     window.onload = () => {
       navigator.geolocation.getCurrentPosition((position) => {
-        [..document.getElementsByClassName("item")].forEach((div) => {
-          // div.onlick 
-        });
-      });
-    };
-        
+        console.log(position)
+        let divs = document.getElementsByClassName("item")
+        for (let i = 0; i < divs.length; i++) {
+          let div = divs[i]
+          div.onclick = () => {
+            window.location = `/results_ltln?categories=${div.id}&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`
+          }
+        }
+      })
+    }
   </script>
+
+
+
+
+
+
   
 
 <div class="flex-container">

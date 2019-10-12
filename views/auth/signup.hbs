@@ -12,7 +12,7 @@
 
 
 
-<h2>Already have an account?</h2>
+<h2>CREATE</h2>
 
 <form action="/signup" method="post">
   <input class="signUpPage" type="text" name="name" placeholder="name">
@@ -23,9 +23,8 @@
   <input class="signUpPage" type="password" name="password" placeholder="password">
   <br>
   <br>
-  <div><button type="submit">Sign up</button></div>
+  <button type="submit" data-toggle="modal" data-target="#myModal">Sign up</button>
 </form>
-
 
 
 </div>
@@ -36,7 +35,7 @@
 
 Already have an account?
 <br>
-<a href="/login">Login</a>
+<a href="/index">Login</a>
 {{#if errorMessage}}
 <div class="error-message">{{ errorMessage }}</div>
 {{/if}}

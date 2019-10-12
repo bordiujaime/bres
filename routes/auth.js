@@ -7,6 +7,7 @@ const bcryptSalt = 10;
 // GET signup
 router.get('/signup', (req, res, next) => {
  res.render('auth/signup')
+ 
 })
 // GET login
 router.get('/login', (req, res, next) => {

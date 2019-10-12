@@ -1,49 +1,53 @@
 <div class="loginMain">
 
-<div class="loginLeft">
+  <div class="loginLeft">
 
+    <div class="login2">
 
-</div>
+     <h5>Create an Account</h5>
 
+      {{!-- <form action="/signup" method="post">
+        <input class="inpSignUp" type="text" name="name" placeholder="name">
+        <br>
+        <input class="inpSignUp" type="text" name="email" placeholder="email">
+        <br>
+        <input class="inpSignUp" type="password" name="password" placeholder="*******">
+        <br>
+        <br>
+        <div><button type="submit">Sign up</button></div>
+        
+      </form> --}}
 
-<div class="loginRight">
-
-  <div class="login">
-
-
-  <h1>Login</h1>
-
-
-<form action="/login" method="post">
-  <input class="inpLogIn" type="text" name="email" placeholder="email">
-  <br>
-  <br>
-  <input class="inpLogIn" type="password" name="password" placeholder="password">
-  <br>
-  <br>
-  <div><button type="submit">Log in</button></div>
-</form>
-
-
-
-<h5>Already have an account?</h5>
-
-<form action="/signup" method="post">
-  <input class="inpSignUp" type="text" name="name" placeholder="name">
-  <br>
-  <input class="inpSignUp" type="text" name="email" placeholder="email">
-  
-<br>
-  <input class="inpSignUp" type="password" name="password" placeholder="password">
-  <br>
-  <br>
-  <div><button type="submit">Sign up</button></div>
-</form>
-
-
+     <input class="inpSignUp" type="button" onclick="location.href='/signup';" value="Go to create an account" />
 
 </div>
+  </div>
 
-</div>
+
+  <div class="loginRight">
+
+    <div class="login">
+
+
+      <h1>Login</h1>
+
+
+      <form action="/login" method="post">
+        <input class="inpLogIn" type="text" name="email" placeholder="email">
+        <br>
+        <br>
+        <input class="inpLogIn" type="password" name="password" placeholder="*******">
+        <br>
+        <br>
+        <div><button type="submit">Log in</button></div>
+      </form>
+
+
+
+    
+
+    </div>
+
+  </div>
 
 </div>

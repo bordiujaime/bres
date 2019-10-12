@@ -65,13 +65,12 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 //Routes.................................
 // Login - Sign Up
-const index = require('./routes/index');
-app.use('/', index);
 const usersRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
 const homeRouter = require('./routes/home')
 const resultsRouter = require('./routes/results')
 const favoriteRouter = require('./routes/favorite')
+const resultslnltRouter = require('./routes/results_ltln')
 
 
 app.use('/', authRouter)
@@ -79,5 +78,10 @@ app.use('/users', usersRouter)
 app.use('/home', ensureLogin.ensureLoggedIn(), homeRouter)
 app.use('/results', ensureLogin.ensureLoggedIn(), resultsRouter)
 app.use('/favorite', ensureLogin.ensureLoggedIn(), favoriteRouter)
+app.use('/results_ltln', ensureLogin.ensureLoggedIn(), resultslnltRouter)
+
+
 
 module.exports = app;
+
+
